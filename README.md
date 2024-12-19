@@ -1,7 +1,7 @@
 # Distractors-Immune Representation Learning with Cross-modal Contrastive Regularization for Change Captioning
 This package contains the accompanying code for the following paper:
 
-Tu, Yunbin, et al. ["Distractors-Immune Representation Learning with Cross-modal Contrastive Regularization for Change Captioning"](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05989.pdf), which has appeared as a regular paper in ECCV 2024. 
+Tu, Yunbin, et al. ["Distractors-Immune Representation Learning with Cross-modal Contrastive Regularization for Change Captioning"](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05989.pdf), which has appeared as a regular paper in ECCV 2024. The arxiv version is [here.](https://arxiv.org/pdf/2407.11683)
 
 ## We illustrate the training and testing details as follows:
 
