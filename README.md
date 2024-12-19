@@ -13,12 +13,16 @@ Tu, Yunbin, et al. ["Distractors-Immune Representation Learning with Cross-modal
 
 ## Data
 1. Download image data from here: [viewpoint-agnostic change captioning with cycle consistency (ICCV'21)](https://github.com/hsgkim/clevr-dc)
-2. 
-You need to split them as bef-change images and aft-change images, and put two kinds of images into two directories, namely `images` and `sc_images`. 
+2. You need to split them as bef-change images and aft-change images, and put two kinds of images into two directories, namely `images` and `sc_images`. 
 I have also uploaded my downloaded images into the baidu drive [clevr-dc.zip](https://pan.baidu.com/s/1VK6dH7BQ7rYaIVYOYLVZGg?pwd=dc24), where the extraction code is `dc24`.
+3. After obtaining the image pairs and captions, you should rename them first by using the following commands:
+```
+python pad_img.py
+python rename_dc_caption.py
+```   
 
 
-3. Preprocess data
+5. Preprocess data
 
  Extract visual features using ImageNet pretrained ResNet-101:
 ```
