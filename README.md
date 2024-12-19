@@ -37,7 +37,7 @@ python scripts/extract_features.py --input_image_dir ./clevr_dc/images --output_
 python scripts/extract_features.py --input_image_dir ./clevr_dc/sc_images --output_dir ./clevr_dc/sc_features --batch_size 128
 
 
-* Build vocab and label files using caption annotations (Both files have been in the `spot-the-diff'' directory, so you can skip this step.)
+* Build vocab and label files using caption annotations.
 ``
 python scripts/preprocess_captions_dc.py
 ```
