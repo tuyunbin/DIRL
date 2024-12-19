@@ -17,7 +17,10 @@ Tu, Yunbin, et al. ["Distractors-Immune Representation Learning with Cross-modal
 I have also uploaded my downloaded images into the baidu drive [clevr-dc.zip](https://pan.baidu.com/s/1VK6dH7BQ7rYaIVYOYLVZGg?pwd=dc24), where the extraction code is `dc24`.
 3. After obtaining the image pairs and captions, you should rename them first by using the following commands:
 ```
+# rename image pairs 
 python pad_img.py
+
+# rename captions
 python rename_dc_caption.py
 ```   
 
@@ -28,15 +31,15 @@ python rename_dc_caption.py
 ```
 # processing default images
 ``
-python scripts/extract_features.py --input_image_dir ./spot-the-diff/images --output_dir ./spot-the-diff/features --batch_size 128
+python scripts/extract_features.py --input_image_dir ./clevr_dc/images --output_dir ./clevr_dc/features --batch_size 128
 
 # processing semantically changes images
-python scripts/extract_features.py --input_image_dir ./spot-the-diff/sc_images --output_dir ./spot-the-diff/sc_features --batch_size 128
+python scripts/extract_features.py --input_image_dir ./clevr_dc/sc_images --output_dir ./clevr_dc/sc_features --batch_size 128
 
 
 * Build vocab and label files using caption annotations (Both files have been in the `spot-the-diff'' directory, so you can skip this step.)
 ``
-python scripts/preprocess_captions_multi_spot.py
+python scripts/preprocess_captions_dc.py
 ```
 
 ## Training
@@ -52,44 +55,44 @@ ln -s $PATH_TO_DIR$ experiments
 python -m visdom.server
 
 # start training
-python train_card_spot.py --cfg configs/dynamic/transformer_multi_spot.yaml
+python train.py --cfg configs/dynamic/transformer_dc.yaml
 ```
 
 ## Testing/Inference
 To test/run inference on the test dataset, run the following command
 ```
-python test_card_spot.py --cfg configs/dynamic/transformer_multi_spot.yaml --snapshot 8000 --gpu 1
+python test.py --cfg configs/dynamic/transformer_multi_spot.yaml --snapshot 12000 --gpu 1
 ```
-The command above will take the model snapshot at 8000th iteration and run inference using GPU ID 1.
+The command above will take the model snapshot at 12000th iteration and run inference using GPU ID 1.
 
 ## Evaluation
 * Caption evaluation
 
 To evaluate captions, we need to first reformat the caption annotations into COCO eval tool format (only need to run this once). After setting up the COCO caption eval tools ([github](https://github.com/tylin/coco-caption)), make sure to modify `utils/eval_utils.py` so that the `COCO_PATH` variable points to the COCO eval tool repository. Then, run the following command:
 ```
-python utils/eval_utils_spot.py
+python utils/eval_utils_dc.py
 ```
 
 After the format is ready, run the following command to run evaluation:
 ```
 # This will run evaluation on the results generated from the validation set and print the best results
-python evaluate_spot.py --results_dir ./experiments/card_spot/eval_sents --anno ./spot-the-diff/change_multi_captions_reformat.json 
+python evaluate_dc.py --results_dir ./experiments/DIRL+CCR/eval_sents --anno ./clevr_dc/change_captions_reformat.json 
 ```
 
 Once the best model is found on the validation set, you can run inference on test set:
 ```
-python evaluate_spot.py --results_dir ./experiments/card_spot/test_output/captions --anno ./spot-the-diff/change_multi_captions_reformat.json 
+python evaluate_dc.py --results_dir ./experiments/DIRL+CCR/test_output/captions --anno ./clevr_dc/change_captions_reformat.json 
 ```
-The results are saved in `./experiments/card_spot/test_output/captions/eval_results.txt`
+The results are saved in `./experiments/DIRL+CCR/test_output/captions/eval_results.txt`
 
 If you find this helps your research, please consider citing:
 ```
-@inproceedings{tu2024context,
-  title={Context-aware Difference Distilling for Multi-change Captioning},
-  author={Tu, Yunbin and Li, Liang and Su, Li and Zha, Zheng-Jun and Yan, Chenggang and Huang, Qingming},
-  booktitle={Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
-  pages={7941--7956},
-  year={2024}
+@inproceedings{tu2024distractors,
+  title={Distractors-Immune Representation Learning with Cross-modal Contrastive Regularization for Change Captioning},
+  author={Tu, Yunbin and Li, Liang and Su, Li and Yan, Chenggang and Huang, Qingming},
+  booktitle={ECCV},
+  pages={311--328},
+  year={2024},
 }
 ```
 
