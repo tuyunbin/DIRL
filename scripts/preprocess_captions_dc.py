@@ -127,7 +127,7 @@ def main(args):
 
     with h5py.File(args.output_h5, 'w') as f:
         f.create_dataset('labels', data=L)
-        f.create_dataset('deps', data=D)
+        #f.create_dataset('deps', data=D)
         f.create_dataset('label_start_idx', data=label_start_idx)
         f.create_dataset('label_end_idx', data=label_end_idx)
         f.create_dataset('label_length', data=label_length)
