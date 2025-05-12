@@ -61,7 +61,7 @@ python train.py --cfg configs/dynamic/transformer_dc.yaml
 ## Testing/Inference
 To test/run inference on the test dataset, run the following command
 ```
-python test.py --cfg configs/dynamic/transformer_multi_spot.yaml --snapshot 12000 --gpu 1
+python test.py --cfg configs/dynamic/transformer_dc.yaml --snapshot 12000 --gpu 1
 ```
 The command above will take the model snapshot at 12000th iteration and run inference using GPU ID 1.
 
