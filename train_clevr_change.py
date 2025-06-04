@@ -191,10 +191,10 @@ while t < cfg.train.max_iter:
 
         stats['speaker_loss'] = speaker_loss_val
         stats['avg_speaker_loss'] = speaker_loss_avg.avg
-        stats['cdcr_loss'] = cdcr_loss_val
-        stats['avg_cdcr_loss'] = cdcr_loss_avg.avg
-        stats['sim_loss'] = sim_loss_val
-        stats['avg_sim_loss'] = sim_loss_avg.avg
+        stats['dirl_loss'] = dirl_loss_val
+        stats['avg_dirl_loss'] = dirl_loss_avg.avg
+        stats['ccr_loss'] = ccr_loss_val
+        stats['avg_ccr_loss'] = ccr_loss_avg.avg
         stats['total_loss'] = total_loss_val
         stats['avg_total_loss'] = total_loss_avg.avg
 
