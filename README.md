@@ -4,6 +4,10 @@ This package contains the accompanying code for the following paper:
 Tu, Yunbin, et al. ["Distractors-Immune Representation Learning with Cross-modal Contrastive Regularization for Change Captioning"](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05989.pdf), which has appeared as a regular paper in ECCV 2024. The arxiv version is [here.](https://arxiv.org/pdf/2407.11683)
 
 ## Upadte
+2025.7.11
+
+The training and testing code, data and checkpoint files for spot-the-diff dataset have been uploaded in  the baidu drive [dirl_spot](https://pan.baidu.com/s/19uWNwM_2dA2kRXP7EOBNaA?pwd=dirl), where the extration code is dirl 
+
 The training and testing code files for CLEVR-Change dataset have been uploaded. The data files and checkpoint file are in  the baidu drive [dirl_clevr_change](https://pan.baidu.com/s/1WolB0B2rbV377I1B2hzlwA?pwd=dirl), where the extration code is dirl 
 
 ## We illustrate the training and testing details as follows:
