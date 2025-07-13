@@ -18,7 +18,7 @@ parser.add_argument('--output_dir', required=True)
 parser.add_argument('--image_height', default=224, type=int)
 parser.add_argument('--image_width', default=224, type=int)
 
-parser.add_argument('--model', default='resnet152')
+parser.add_argument('--model', default='resnet101')
 parser.add_argument('--model_stage', default=4, type=int)
 parser.add_argument('--batch_size', default=128, type=int)
 
